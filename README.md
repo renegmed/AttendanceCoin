@@ -55,3 +55,26 @@ Join #attendance-coin-msg channel
 - post issues
 - share thoughtfull comments
 - interact with the contract on https://remix.ethereum.org/
+
+# Testing And Test Configuration 
+
+To run the test scripts, do 
+
+    $> truffle test
+
+In order for this to run, do the following
+
+    1. Install ganache-cli
+
+            $> npm install -g ganache-cli
+
+    2. From a separate start ganache client
+
+            $> ganache-cli
+
+    3. Then from a separate terminal run the truffle test script
+
+            $> truffle test
+
+        NOTE: check trunffle.js configuration pointing to ganache-cli port number                        
+        
