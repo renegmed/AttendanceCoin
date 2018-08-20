@@ -1,7 +1,7 @@
   
 //const web3 = require('../node_modules/web3/src/index');
 const fixedSupplyToken = artifacts.require('./FixedSupplyToken.sol');
-const TOTAL_TOKEN_SUPPLY = 1000000000000000000000000;
+const TOTAL_TOKEN_SUPPLY = 1000000000000000000000000000;
 
 contract('FixedSupplyToken', (accounts) => {
    let fixedSupplyTokenInstance;
@@ -16,8 +16,8 @@ contract('FixedSupplyToken', (accounts) => {
     assert(owner == deployer, "Contract deployer and owner should be the same.");
 
     const totalSupply = await fixedSupplyTokenInstance.totalSupply();
-    
-    assert.equal(totalSupply, TOTAL_TOKEN_SUPPLY, 
+  
+    assert.equal(totalSupply.toNumber(), TOTAL_TOKEN_SUPPLY, 
         "Owner tokens after contract deployment must have " + TOTAL_TOKEN_SUPPLY); 
    });
 
