@@ -41,7 +41,9 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+client/node_modules/
+client/package-lock.json
+client/yarn.lock
 jspm_packages/
 
 # TypeScript v1 declaration files

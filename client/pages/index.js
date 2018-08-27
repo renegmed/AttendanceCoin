@@ -1,43 +1,32 @@
 import React, { Component } from 'react';
-import Layout from '../components/Layout';
-import Details from './details'
+import Layout from '../components/containers/Layout';
+import { Container, Header } from 'semantic-ui-react'
 
-export default class HomePage extends Component { 
-  
-  static async getInitialProps(props) {
-    const { account } = props.query;
-    console.log('------ HomePage getInitialProps() account --------')
-    console.log(account)
-    return { account };
-  }
-
-  // constructor(props) {
-  //   super(props)
-  //   let account 
-  //   if (props.query) {
-  //     account = props.query.account
-  //   }
-  //   this.state = {account}
-  //   console.log('------ HomePage constructor() account --------')
-  //   console.log(account)
-  // }  
-
-  changeOwner = (owner) => {   
-    this.setState({owner})
-  } 
-  render() { 
-    let account
-    // if (!this.props.account || this.props.account == 0) {
-    //   account = 0x0
-    // } else {
-      account = this.props.account
-    //}
-    console.log('------ HomePage render() account --------')    
-    console.log(account)
+export default class Index extends Component {    
+  render() {     
     return (
-      <Layout currentAccount={account}>
-          <Details account={account} changeOwner={this.changeOwner.bind(this)} />       
-      </Layout>
+      <Layout>
+       <Container fluid>
+      <Header as='h2'>Dogs Roles with Humans</Header>
+      <p>
+        Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf
+        ancestors, which would have been pack hunters with complex body language. These
+        sophisticated forms of social cognition and communication may account for their
+        trainability, playfulness, and ability to fit into human households and social situations,
+        and these attributes have given dogs a relationship with humans that has enabled them to
+        become one of the most successful species on the planet today.
+      </p>
+      <p>
+        The dogs' value to early human hunter-gatherers led to them quickly becoming ubiquitous
+        across world cultures. Dogs perform many roles for people, such as hunting, herding, pulling
+        loads, protection, assisting police and military, companionship, and, more recently, aiding
+        handicapped individuals. This impact on human society has given them the nickname "man's
+        best friend" in the Western world. In some cultures, however, dogs are also a source of
+        meat.
+      </p>
+    </Container>
+     </Layout>
+          
     );
   }
 }

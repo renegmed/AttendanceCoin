@@ -14,6 +14,8 @@
     "next-routes": "^1.4.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "semantic-ui-react": "^0.82.2",
     "web3": "^1.0.0-beta.34"
   }
