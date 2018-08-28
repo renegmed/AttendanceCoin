@@ -44,6 +44,7 @@ build/Release
 client/node_modules/
 client/package-lock.json
 client/yarn.lock
+client/.next
 jspm_packages/
 
 # TypeScript v1 declaration files

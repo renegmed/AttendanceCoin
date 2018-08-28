@@ -6,9 +6,9 @@ routes
   .add('/Events', '/events/Events') 
   .add('/EventAdd', '/events/EventAdd') 
   .add('/EventUpdate', '/events/EventUpdate') 
-  .add('/AccountsList', '/accounts/AccountsList') 
+  .add('/AccountsList', '/accounts/Accounts') 
   .add('/AccountSearch', '/accounts/AccountSearch')
-  .add('/AdminInfo', '/admin/AdminInfo') 
+  .add('/AdminInfo', '/admin/AdminAccount') 
   .add('/AdminChange', '/admin/AdminChange');
 
   // .add('/index', '/index') 
