@@ -1,2 +1,0 @@
-Attendance of members are recorded here.
-This will be a separate application

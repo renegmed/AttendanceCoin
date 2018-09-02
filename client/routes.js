@@ -3,13 +3,12 @@ const routes = require('next-routes')();
 routes
   .add('/', '/index') 
   .add('/Index', '/index') 
-  .add('/Events', '/events/Events') 
-  .add('/EventAdd', '/events/EventAdd') 
-  .add('/EventUpdate', '/events/EventUpdate') 
-  .add('/AccountsList', '/accounts/Accounts') 
-  .add('/AccountSearch', '/accounts/AccountSearch')
-  .add('/AdminInfo', '/admin/AdminAccount') 
-  .add('/AdminChange', '/admin/AdminChange');
+  .add('/TransferBalances', '/accounts/balances/AccntTransferBalances') 
+  .add('/ApproveTransfer', '/accounts/approve/ApproveTransfer') 
+  .add('/MyTransfer', '/accounts/transfer/MyTransfer') 
+  .add('/OtherTransfer', '/accounts/transferFrom/OtherTransfer')  
+  .add('/AllApprvTransBal', '/admin/transferBalances/AllApprvTransBal') 
+  .add('/AllTransactions', '/admin/transactions/AllTransactions');
 
   // .add('/index', '/index') 
   //   // Transfer the balance from token owner's account to `to` account

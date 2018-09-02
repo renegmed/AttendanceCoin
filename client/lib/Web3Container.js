@@ -1,6 +1,6 @@
 import React from 'react'
-import getWeb3 from './getWeb3' 
-import contract from './fixedSupplyToken'
+import web3 from './web3' 
+import contract from './DeployedFixedSupplyToken'
 
 export default class Web3Container extends React.Component {
 
@@ -16,7 +16,7 @@ export default class Web3Container extends React.Component {
     console.log('^^^^^^^^^ Web3Container. componentDidMount ^^^^^^^^^')
   
     try {
-      const web3 = await getWeb3()     
+      // const web3 = await getWeb3()     
       const accounts = await web3.eth.getAccounts()
       const owner = await contract.methods.owner().call()   
       const newOwner = await contract.methods.newOwner().call()
