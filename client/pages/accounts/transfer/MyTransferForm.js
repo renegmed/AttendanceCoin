@@ -9,22 +9,30 @@ import FixedSupplyTokenDefinition from "../../../lib/contracts/FixedSupplyToken"
 class MyTransferForm extends Component {
   state = { loading: false, errorMessage: "", tokens: "", to: "" };
 
-  static async getInitialProps(props) {
-    const currentAccount = await web3.eth.getAccounts()[0];
-    return { currentAccount };
-  }
+  // static async getInitialProps(props) {
+  //   console.log('~~~~~~~ MyTransferForm.getInitialProps ~~~~~~~~~')
+  //   const accounts = await web3.eth.getAccounts();
+  //   console.log(accounts)
+  //   //this.setState({ loading: false, errorMessage: "", tokens: "", to: "" })
+  //   return { currentAccount: accounts[0] };
+  // }
 
   onSubmit = async event => {
     event.preventDefault();
-
+    console.log('~~~~~~~ MyTransferForm.onSubmit ~~~~~~~~~')
     this.setState({ loading: true, errorMessage: "" });
 
     try {
-      const { currentAccount } = this.props;
+      //const { currentAccount } = this.props;
+      const accounts = await web3.eth.getAccounts();
       const fixedSupplyToken = await getFixedSupplyTokenInstance(
         web3,
         FixedSupplyTokenDefinition
       );
+      const currentAccount = accounts[0]
+      console.log(currentAccount)
+      console.log(this.state.to)
+      console.log(this.state.tokens)
 
       const result = await fixedSupplyToken.methods
         .transfer(this.state.to, parseInt(this.state.tokens))

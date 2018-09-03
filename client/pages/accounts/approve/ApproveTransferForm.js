@@ -9,25 +9,35 @@ import FixedSupplyTokenDefinition from "../../../lib/contracts/FixedSupplyToken"
 class ApproveTransferForm extends Component {
   state = { loading: false, errorMessage: '',  tokens: '', to: '' }  
 
-  static async getInitialProps(props) {
+  // static async getInitialProps(props) {
    
-    const currentAccount = await web3.eth.getAccounts()[0];
-    return {  currentAccount };
-  }
+  //   console.log("^^^^^^ ApproveTransferForm.getInitialProps ^^^^^^^^")
+    
+  //   const currentAccount = await web3.eth.getAccounts()[0];
+  //   console.log(currentAccount)
+
+  //   return {  currentAccount };
+  // }
 
     
   onSubmit = async event => {
     event.preventDefault();
+    console.log("^^^^^^ ApproveTransferForm.onSubmit ^^^^^^^^")
 
     this.setState({ loading: true, errorMessage: "" });
 
     try {
-      const { currentAccount } = this.props;
+      //const { currentAccount } = this.props;
+      const accounts = await web3.eth.getAccounts();
+
       const fixedSupplyToken = await getFixedSupplyTokenInstance(
         web3,
         FixedSupplyTokenDefinition
       );
-
+      const currentAccount = accounts[0]
+      console.log(currentAccount)
+      console.log(this.state.to)
+      console.log(this.state.tokens)
       const result = await fixedSupplyToken.methods
         .approve(this.state.to, parseInt(this.state.tokens))
         .send({
@@ -48,8 +58,7 @@ class ApproveTransferForm extends Component {
     return (
       <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
         <Form.Field>
-          <label>Allocate Token To Account</label>
-
+        
           <Input
             value={this.state.to}
             onChange={event => this.setState({ to: event.target.value })}

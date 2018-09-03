@@ -7,6 +7,8 @@ class ApproveTransfer extends Component {
     render() {
         return (
             <Layout>
+                <label>Allocate Token To Account</label>
+                <p/>
                 <ApproveTransferForm />
             </Layout>
         )
